@@ -1,6 +1,8 @@
 #include <Arduino.h>
+
 #include <OneWire.h>
 #include <DallasTemperature.h>
+
 
 const byte LED = 13;
 const byte PROBE_PIN = 11;
@@ -24,7 +26,7 @@ void loop() {
   temperature = 10 * sensor.getTempCByIndex(0) + 0.05;
   if(temperature > prev_temp) { digitalWrite(LED, HIGH); }
   else { digitalWrite(LED, LOW); }
-  Serial.println(float(temperature), 1);
+  Serial.println(float(temperature)/10, 1);
   delay(100);
 
   prev_temp = temperature;
