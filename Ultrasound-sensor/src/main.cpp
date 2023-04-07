@@ -3,12 +3,9 @@
 const byte TRIG = 2;
 const byte ECHO = 3;
 
-int distance;
-long period;
-
 void trigger();
 long get_period();
-int get_distance();
+float get_distance();
 
 void setup() {
   // put your setup code here, to run once:
@@ -22,12 +19,12 @@ void loop() {
   // put your main code here, to run repeatedly:
   trigger();
   Serial.println(get_distance());
-  delay(100);
+  delay(10);
 }
 
-int get_distance()
+float get_distance()
 {
-  return get_period()/58;
+  return float(get_period())/58;
 }
 
 long get_period()
